@@ -557,3 +557,16 @@ end
 --     autocmd BufWritePost plugins.lua source <afile> | PackerSync
 --   augroup end
 -- ]])
+
+`~/.config/nvim/..
+init.lua (call all files that you want to run)
+lua
+  user
+    core
+      init.lua
+      keymaps.lua
+      options.lua
+    plugins
+      plugins...
+    lazy.lua (set up lazy packup manager)
+  lazy-lock.json`
