@@ -1,3 +1,4 @@
+-- will install lazy if it isn't already installed when open up neovim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -11,8 +12,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("user.plugins", {
-  change_detection = {
+require("lazy").setup("user.plugins.active", { --pass directory that holds the active plugins
+  change_detection = { --Disable lazy.nvim change_detection notification
     notify = false,
   },
 })

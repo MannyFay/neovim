@@ -1,16 +1,11 @@
--- Insert this to your Packer plugins file:
-
 -------------------------------------------------------------------------------
 -- NvimTree
 
--- use({
---     'nvim-tree/nvim-tree.lua',
---     requires = 'kyazdani42/nvim-web-devicons',
---     config = function()
---       require('user.plugin_options.nvim-tree')
---     end
--- })
-
+return {
+  "nvim-tree/nvim-tree.lua",
+  dependencies = "nvim-tree/nvim-web-devicons",
+  config = function()
+ --   local nvimtree = require("nvim-tree")
 
 
 
@@ -23,7 +18,7 @@
 -- Import Nvim-Tree plugin with a protected call:
 local nvim_tree_status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not nvim_tree_status_ok then
-  return "Error: */lua/user/plugin_options/nvim-tree.lua -> NvimTree plugin could not be loaded. Sure you have installed it in your plugins file?"
+  return "Error: */lua/user/plugins/nvim-tree.lua -> NvimTree plugin could not be loaded. Sure you have installed it in your plugins file?"
 end
 
 -- Open Nvim-Tree by default if Nvim starts (leave it at this place!):
@@ -405,3 +400,6 @@ nvim_tree.setup {
 
 -- Open NvimTree if Neovim starts:
 vim.api.nvim_create_autocmd({ 'VimEnter' }, { callback = open_nvim_tree })
+	end
+}
+
