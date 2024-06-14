@@ -1,0 +1,3 @@
+[submodule "lua/plugins/generic"]
+	path = lua/plugins/generic
+	url = https://github.com/muneebusmani/generic

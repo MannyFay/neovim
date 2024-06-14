@@ -1,61 +1,56 @@
-# Neovim Configuration
-# Project Status: Rebuilding
-This project is currently in the rebuilding phase. Be careful if you want to use it.  
+# 💤 LazyVim + Laravel
 
----
-<br>
+(and some stuff I also use)
+This is my best effort to fully integrate my LazyVim config with Laravel and all Laravel-related tools.
+Works great with Livewire v3 as well as Volt and Folio.
+When using Volt, use class-based syntax for maximum compatibility.
+Functional Volt works, too, but has issues with `$this`.
 
-# Old Part of README
-My system: macOS  
-This is a beginner friendly entry point to Neovim.  
-All files are well documentated, so you can dive easily in and understand what is happening.
+A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
+Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
 
-## Recommendation
-I highly recommend to learn blind typing if you would like to use Neovim.  
-A good place to start is the [Tipp10 page](https://www.tipp10.com/en/).  
-Personally I like a keyboard with US ANSI layout the best.
+## Laravel Native
 
-## Requirements
-To use this Neovim configuration you have to set up a few things.  
-If you are very new on this topic, pleace read the [beginners-guide](./docs/beginners-guide.md).
-* Neovim
-* Java
-* Graphviz
-* Ripgrep
-* Nerd Font (I use Meslo Nerd Font)
-* CMake, make, Clang
-* Deno
+This config is setup with the best available dev tooling for laravel
 
+- Intelephense
+- Blade Language Support
+- Blade Formatter
+- Pint
+- Phpstan (make sure you configure larastan in your project)
+- Rustywind
+- Tailwind LS
+- XDebug with configuration for Laravel Sail
+- Treesitter beta for blade files included
 
-## Quick Start
-Open your terminal, make shure you are in your home directory:
-```shel
-cd ~
-```
-Create directory structure for Neovim:
-```shell
-mkdir -p ~/.config/nvim
-```
-Now copy the lua directory and the init.lua file in your nvim directory.  
-Open Neovim:
-```shell
-nvim
-```
-Normally, Neovim looks now not how you hope. Press `:` and do:
-```shell
-PackerUpdate
-```
-Discard after finishing the popup with `q`, then do `:` and:
-```shell
-PackerSync
-```
-Close the popup again with `q` and close Neovim with pressing `ZZ` till you are in your terminal again.  
-If you open Neovim again, it should look a little better.
+## Additions
 
-## Further Documentation
-* [Beginners Guide](./docs/beginners-guide.md)
-* [Neovim Commands](./docs/nvim-commands.md)
-* [Neovim Commands as Post-Its](./docs/post-its.md)
+### Requirements
 
-## Like?
-If you like that repo, you can sponsor it on my [Patreon account](https://www.patreon.com/Manny556).
+If you encounter an issue with `Intelephense` not recognising facade or model function calls, you will need to install [Laravel IDE Helper](https://github.com/barryvdh/laravel-ide-helper) into your project and execute the relevant artisan commands. Thanks to [@ermand](https://github.com/ermand) for bringing up the issue as well as the solution.
+
+Make sure you install all TreeSitter parsers by doing:
+`:TSInstall all` and `:TSInstall php_only`.
+This will install both the experimental blade parser, for which configuration is included in this config, as well as the php_only parser, which is needed for it to work fully.
+For some reason php_only is not included in `all`.
+
+Optional:
+
+- lazygit
+- lazydocker
+
+(you should use both, they are great)
+
+### LSP
+
+- Tailwind support
+- Intelephense for php (best in class for Laravel development)
+
+### Theme
+
+- I concede, we are back to using catppuccin. There is just too many integrations.
+
+## Troubleshooting
+
+If opening a py file leads to pyright analyzing your whole library, make sure to add an empty `pyrightconfig.json` into the file root.
+This can be your $HOME folder or for example on darwin using homebrew it could be `/opt/homebrew/`.
