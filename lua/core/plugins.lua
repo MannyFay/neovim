@@ -530,6 +530,19 @@ use({
 
 
 
+-------------------------------------------------------------------------------
+-- TODO Comments
+
+use({
+  'folke/todo-comments.nvim',
+  requires = 'nvim-lua/plenary.nvim',
+  config = function()
+    require('plugin_options.active.todo-comments')
+  end,
+})
+
+
+
 ------------------------------------------------------------------------------
 -- Auto Commands
 ------------------------------------------------------------------------------

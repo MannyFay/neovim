@@ -108,8 +108,8 @@ local function on_attach(bufnr)
 end
 
 
---------------------------------------------------------------
--- Settings
+-------------------------------------------------------------------------------
+-- Appearance
 
 nvim_tree.setup{
   on_attach                          = on_attach,  -- Call function above to set key mappings.
