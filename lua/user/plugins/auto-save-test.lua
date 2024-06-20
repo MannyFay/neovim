@@ -17,10 +17,10 @@ return {
     dim               = 0.18,                             -- Dim the color of `message`.
     cleaning_interval = 1250,                             -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
   },
-  trigger_events = {                                      -- Vim events that trigger auto-save. See :h events
+  --[[ trigger_events = {                                      -- Vim events that trigger auto-save. See :h events
     'InsertLeave',
     'TextChanged'
-  },
+  }, ]]
 
   -- Function that determines whether to save the current buffer or not (true: if buffer is ok to be saved. false: if it's not ok to be saved.
   condition = function(buf)
