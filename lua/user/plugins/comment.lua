@@ -1,11 +1,9 @@
+------------------------------------------------------------------------------
+-- Comment Plugin
+
 -- ~/.dotfiles/nvim/lua/user/plugin_options/comment.lua
 
 -- https://github.com/numtostr/comment.nvim
-
-
-
-------------------------------------------------------------------------------
--- Comment Plugin
 ------------------------------------------------------------------------------
 return {
 	"numToStr/Comment.nvim",
