@@ -44,7 +44,7 @@ return {
   -- pre_hook = nil,      -- Function to call before (un)comment.
   -- for commenting tsx, jsx, svelte, html files (make commentstring work with comment plugin)
   pre_hook = ts_context_commentstring.create_pre_hook(),
-  post_hook = nil,        -- Function to call after (un)comment.
+  post_hook = nil,        -- Function to call after (un)comment.ZZ
 
 	})
 	end,
