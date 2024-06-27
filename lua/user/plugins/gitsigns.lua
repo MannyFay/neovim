@@ -15,36 +15,11 @@ return{
 
     gitsigns.setup({
   signs = {
-    add = {
-      hl     = 'GitSignsAdd',
-      text   = '▎',
-      numhl  = 'GitSignsAddNr',
-      linehl = 'GitSignsAddLn',
-    },
-    change = {
-      hl     = 'GitSignsChange',
-      text   = '▎',
-      numhl  = 'GitSignsChangeNr',
-      linehl = 'GitSignsChangeLn',
-    },
-    delete = {
-      hl     = 'GitSignsDelete',
-      text   = ' ',
-      numhl  = 'GitSignsDeleteNr',
-      linehl = 'GitSignsDeleteLn',
-    },
-    topdelete = {
-      hl     = 'GitSignsDelete',
-      text   = ' ',
-      numhl  = 'GitSignsDeleteNr',
-      linehl = 'GitSignsDeleteLn',
-    },
-    changedelete = {
-      hl     = 'GitSignsChange',
-      text   = '▎',
-      numhl  = 'GitSignsChangeNr',
-      linehl = 'GitSignsChangeLn',
-    },
+    add =          { text = '▎' },
+    change =       { text = '▎' },
+    delete =       { text = ' ' },
+    topdelete =    { text = ' ' },
+    changedelete = { text = '▎' },
   },
   -- Create Gitsigns column before line numbers:
   signcolumn = true,
@@ -73,11 +48,10 @@ return{
     -- Don't ignore change of white spaces for blame:
     ignore_whitespace = false,
   },
+
   -- Formatting of blame information:
-  current_line_blame_formatter_opts = {
-    -- Display time stamps as absolute time (not '2 days ago'):
-    relative_time = false,
-  },
+  current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+
   -- Priority of Gitsigns against other signs:
   sign_priority = 6,
   -- Refresh interval of Gitsigns in milliseconds:
@@ -93,10 +67,6 @@ return{
     relative = 'cursor',
     row      = 0,
     col      = 1,
-  },
-  -- Disable integration with YADM (Yet Another Dotfiles Manager):
-  yadm = {
-    enable = false,
   },
 
     })

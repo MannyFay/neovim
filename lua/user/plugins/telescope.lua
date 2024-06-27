@@ -6,19 +6,53 @@
 -- Telescope Plugin
 ------------------------------------------------------------------------------
 
-return { 
+return {
   "nvim-telescope/telescope.nvim",
   branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    "nvim-telescope/telescope-live-grep-args.nvim",
+    "nvim-telescope/telescope-media-files.nvim",
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
 
+------------------------------------------------------------
+-- Key Mappings
 
+-- Load Telescopes builtin function:
+local builtin = require('telescope.builtin')
+
+-- Find files with ignored files by Git ( ff):
+vim.keymap.set('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]])
+
+-- Find text inside files ( ft):
+vim.keymap.set('n', '<leader>ft', builtin.live_grep, {})
+
+-- Show recent files:
+vim.keymap.set('n', '<leader>fr', builtin.oldfiles, {})
+
+
+------------------------------------------------------------
+-- Appearance
+
+-- Colors
+local hl = vim.api.nvim_set_hl
+hl(0, 'TelescopePromptTitle',   { fg = '#ababab', bg = 'NONE' })
+hl(0, 'TelescopeResultsTitle',  { fg = '#ababab', bg = 'NONE' })
+hl(0, 'TelescopePreviewTitle',  { fg = '#ababab', bg = 'NONE' })
+hl(0, 'TelescopePromptNormal',  { fg = '#ababab', bg = '#252525' })
+hl(0, 'TelescopeNormal',        { fg = '#ababab', bg = '#191B1C' })
+hl(0, 'TelescopeBorder',        { fg = '#ababab', bg = '#252525' })
+hl(0, 'TelescopePromptBorder',  { fg = '#252525', bg = '#252525' })
+hl(0, 'TelescopeResultsBorder', { fg = '#252525', bg = '#252525' })
+hl(0, 'TelescopePreviewBorder', { fg = '#252525', bg = '#252525' })
+hl(0, 'TelescopeSelection',     { fg = '#ababab', bg = '#252525' })
+hl(0, 'TelescopePromptCounter', { fg = '#A5C25C', bg = '#252525' })
+--[[ hl(0, 'TelescopeMatching', { fg = '#569CD6', bg = '#252525' }) ]]
 
     telescope.setup({
 defaults = {
@@ -69,7 +103,7 @@ defaults = {
         -- Scroll down:
         ['<C-p-d>'] = actions.preview_scrolling_down,
       },
-},    
+},
     -- Ignore files in .git directory:
     file_ignore_patterns = { '.git/'},
   },
@@ -131,39 +165,6 @@ telescope.load_extension('live_grep_args')
 -- Load Media Files extension:
 telescope.load_extension('media_files')
 
-------------------------------------------------------------
--- Key Mappings
-
--- Load Telescopes builtin function:
-local builtin = require('telescope.builtin')
-
--- Find files with ignored files by Git ( ff):
-vim.keymap.set('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]])
-
--- Find text inside files ( ft):
-vim.keymap.set('n', '<leader>ft', builtin.live_grep, {})
-
--- Show recent files:
-vim.keymap.set('n', '<leader>fr', builtin.oldfiles, {})
-
-
-------------------------------------------------------------
--- Appearance
-
--- Colors
-local hl = vim.api.nvim_set_hl
-hl(0, 'TelescopePromptTitle',   { fg = '#ababab', bg = 'NONE' })
-hl(0, 'TelescopeResultsTitle',  { fg = '#ababab', bg = 'NONE' })
-hl(0, 'TelescopePreviewTitle',  { fg = '#ababab', bg = 'NONE' })
-hl(0, 'TelescopePromptNormal',  { fg = '#ababab', bg = '#252525' })
-hl(0, 'TelescopeNormal',        { fg = '#ababab', bg = '#191B1C' })
-hl(0, 'TelescopeBorder',        { fg = '#ababab', bg = '#252525' })
-hl(0, 'TelescopePromptBorder',  { fg = '#252525', bg = '#252525' })
-hl(0, 'TelescopeResultsBorder', { fg = '#252525', bg = '#252525' })
-hl(0, 'TelescopePreviewBorder', { fg = '#252525', bg = '#252525' })
-hl(0, 'TelescopeSelection',     { fg = '#ababab', bg = '#252525' })
-hl(0, 'TelescopePromptCounter', { fg = '#A5C25C', bg = '#252525' })
---[[ hl(0, 'TelescopeMatching', { fg = '#569CD6', bg = '#252525' }) ]]
 
 end,
 }
