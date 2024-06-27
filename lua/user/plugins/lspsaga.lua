@@ -2,18 +2,13 @@
 -- LSP Saga Plugin
 -- https://github.com/nvimdev/lspsaga.nvim
 ------------------------------------------------------------------------------
+return{
+    "nvimdev/lspsaga.nvim",
+    config = function()
 
--- Import LSP Saga plugin with a protected call:
-local lspsaga_status_ok, lspsaga = pcall(require, 'lspsaga')
-if not lspsaga_status_ok then
-  return
-end
+    local lspsaga = require("lspsaga")
+    lspsaga.setup({
 
-
-------------------------------------------------------------
--- Appearance
-
-lspsaga.setup({
   -- keybinds for navigation in lspsaga window
   scroll_preview = {
     scroll_down = "<C-j>",
@@ -73,3 +68,6 @@ vim.api.nvim_set_hl(0, "SagaWinbarSep", { fg = "#606366" })
 
 local keymap = vim.keymap.set
 keymap('n','gd', '<cmd>Lspsaga peek_definition<CR>')
+
+end,
+}
