@@ -28,6 +28,7 @@ return{
 -- Provide key mappings for LSP and enhance autocompletion:
 local on_attach = function(_, bufnr)
   vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
   -- vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)  -- Go to definition (gd).
   -- vim.keymap.set('n', 'si', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)       -- Show information in floating window (si):
   -- keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
@@ -49,7 +50,7 @@ local on_attach = function(_, bufnr)
   --  keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
   --  keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
   --end
-end
+end,
 
 -------------------------------------------------------------------------------
 -- Configuration
