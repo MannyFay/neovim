@@ -7,10 +7,12 @@
 ------------------------------------------------------------------------------
 -- PlantUML Previewer Plugin
 ------------------------------------------------------------------------------
+return{
+    "weirongxu/plantuml-previewer.vim",
+    config = function()
 
 ------------------------------------------------------------
 -- Appearance
-
 vim.cmd([[
   autocmd FileType plantuml let g:plantuml_previewer#plantuml_jar_path = get(
     \  matchlist(system('cat `which plantuml` | grep plantuml.jar'), '\v.*\s[''"]?(\S+plantuml\.jar).*'),
@@ -31,4 +33,5 @@ local options = { noremap = true, silent = true }
 
 vim.keymap.set('n', '<Leader>umlo', ':PlantumlOpen<CR>', options)
 vim.keymap.set('n', '<Leader>umls', ':PlantumlSave %.png<CR>', options)
-
+end,
+}

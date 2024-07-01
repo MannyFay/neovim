@@ -17,7 +17,6 @@ return{
 
         -- enable mason and configure icons
         mason.setup({
-        
   ui = {
     check_outdated_packages_on_open = true,    -- Check for new versions when opening Mason.
     border                          = 'none',  -- Border style of the Mason floating window.
