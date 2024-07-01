@@ -45,7 +45,7 @@ return{
     'cssls',                           -- CSS language server.
     'cucumber_language_server',        -- Cucumber language server.
     'denols',                          -- Deno language server.
-    'diagnosticls',                    -- Diagnostic Node.js and Composer server.
+--    'diagnosticls',                    -- Diagnostic Node.js and Composer server.
     'docker_compose_language_service', -- Docker Compose Language Server.
     'dockerls',                        -- Docker language server.
     'emmet_ls',                        -- Emmet HTML completion server.  -- emmet-language-server
@@ -61,7 +61,7 @@ return{
     'kotlin_language_server',          -- Kotlin language server.
     'lemminx',                         -- XML language server.
     'ltex',                            -- LaTeX language server.
-    'lua_ls',                          -- Lua language server.
+--    'lua_ls',                          -- Lua language server.
     --'autotools_ls',                    -- Make language server.
     'marksman',                        -- Markdown language server.
     'matlab_ls',                       -- MATLAB language server.
