@@ -13,7 +13,6 @@ return{
       { "folke/neodev.nvim", opts = {} },
     },
     config = function()
-    
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
 
@@ -70,7 +69,7 @@ end
 
 
 -- Combine additional default capabilities of Nvim-CMP with the LSP capabilities to work smoothly in autocomplete:
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
 
 mason_lspconfig.setup_handlers({
