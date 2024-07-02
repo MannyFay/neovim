@@ -1,39 +1,16 @@
--- Insert this to your Packer plugins file:
-
--------------------------------------------------------------------------------
--- Hop
-
--- use({
---   'phaazon/hop.nvim',
---   config = function()
---     require('user.plugin_options.hop')
---   end,
--- })
-
--- ~/.dotfiles/nvim/lua/user/plugin_options/hop.lua
-
-
-
-
 -------------------------------------------------------------------------------
 -- Hop Plugin
 -- https://github.com/phaazon/hop.nvim
 -- Fast motions with visual feedback.
 -------------------------------------------------------------------------------
+return{
+    'phaazon/hop.nvim',
+    config = function()
 
--- Import Hop plugin with a protected call:
-local hop_status_ok, hop = pcall(require, 'hop')
-if not hop_status_ok then
-  return "Error: Hop plugin could not be loaded. Sure you have installed it in your plugins file?"
-end
-
-
--------------------------------------------------------------------------------
--- Appearance
-
-hop.setup {
+        local hop = require('hop')
+        hop.setup ({
   multi_windows = true,  -- Enable Hop for multi buffer use.
-}
+        })
 
 
 -------------------------------------------------------------------------------
@@ -62,3 +39,5 @@ vim.api.nvim_set_keymap(
     "n", "<Leader>l", ":HopLineMW<CR>",
     { noremap = false, silent = true }
 )
+end,
+}
