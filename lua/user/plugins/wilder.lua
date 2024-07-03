@@ -1,5 +1,4 @@
 -------------------------------------------------------------------------------
--- Wilder (command line auto complete style)
 
 -- use {
 --   'gelguy/wilder.nvim',
@@ -10,22 +9,18 @@
 
 
 
--- https://github.com/gelguy/wilder.nvim
 
 
 ------------------------------------------------------------------------------
 -- Wilder Plugin
+
+-- Wilder (command line auto complete style)
+-- https://github.com/gelguy/wilder.nvim
 ------------------------------------------------------------------------------
-
--- Import Wilder plugin with a protected call:
-local wilder_status_ok, wilder = pcall(require, 'wilder')
-if not wilder_status_ok then
-  return
-end
-
-
-------------------------------------------------------------
--- Appearance
+return{
+  'gelguy/wilder.nvim',
+  config = function()
+    local wilder = require('wilder')
 
 wilder.setup({
   modes = {
@@ -66,3 +61,5 @@ wilder.set_option('renderer', wilder.popupmenu_renderer({
   -- Sorting is ascending:
   reverse = 0,
 }))
+  end,
+}
