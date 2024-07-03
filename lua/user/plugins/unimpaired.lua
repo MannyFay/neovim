@@ -1,5 +1,4 @@
 -- Add this to your Packer plugin file:
--- Selection of keymappings to jump between buffers and Git conflicts:
 -- use({
 -- [[   'tummetott/unimpaired.nvim',
 --   config = function()
@@ -7,45 +6,21 @@
 --   end
 -- })
 
--- https://github.com/Tummetott/unimpaired.nvim
 
 
 
 ------------------------------------------------------------------------------
 -- Unimpaired Plugin
+
+-- Selection of keymappings to jump between buffers and Git conflicts:
+-- https://github.com/Tummetott/unimpaired.nvim
 ------------------------------------------------------------------------------
+return{
+    'tummetott/unimpaired.nvim',
+    config = function()
+        local unimpaired = require('unimpaired')
 
--- Import Unimpaired with a protected call:
-local unimpaired_status_ok, unimpaired = pcall(require, 'unimpaired')
-if not unimpaired_status_ok then
-  return
-end
-
-
-------------------------------------------------------------
--- Appearance
-
-unimpaired.setup {
-    default_keymaps = true,
-    keymaps = {
-        -- To overwrite the mapping, keymap description and dot-repetition for
-        -- ':bnext', write
-        bnext = {
-            mapping = '<Nop>',
-            description = 'Go to [count] next buffer',
-            dot_repeat = true,
-        },
-        -- To disable dot repetition for ':bprevious', write
-        bprevious = {
-            mapping = '<Nop>',
-            description = 'Go to [count] previous buffer',
-            dot_repeat = false,
-        },
-        -- If you just want to change the keymap for ':bfirst' and don't care
-        -- about desciption and dot-repetition, write the shorthand
-        bfirst = '<Nop>',
-        -- To disable the kemap ':blast' completely, set it to false
-        blast = false,
+        unimpaired.setup ({
 
         previous = {
             mapping = '<Nop>',
@@ -429,6 +404,7 @@ unimpaired.setup {
         },
         -- Disable the default mappings if you prefer to define your own mappings
         default_keymaps = false,
-    }
 
+    })
+    end,
 }
