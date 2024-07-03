@@ -2,8 +2,6 @@
 -------------------------------------------------------------------------------
 -- Project plugin
 
--- Automatically set the working directory to the project root:
--- Maybe it automatically set's the root to vendor if opened! Watch it!
 -- use({
 --   'ahmedkhalf/project.nvim',
 --   requires = {
@@ -19,23 +17,22 @@
 
 
 
--- https://github.com/ahmedkhalf/project.nvim
 
 
 
 ------------------------------------------------------------------------------
 -- Project plugin
+
+-- Automatically set the working directory to the project root:
+-- Maybe it automatically set's the root to vendor if opened! Watch it!
+
+-- https://github.com/ahmedkhalf/project.nvim
 ------------------------------------------------------------------------------
-
--- Import Project with a protected call:
-local project_status_ok, project = pcall(require, 'project_nvim')
-if not project_status_ok then
-  return
-end
-
-
-------------------------------------------------------------
--- Appearance
+return{
+  'ahmedkhalf/project.nvim',
+  depencencies = 'nvim-telescope/telescope.nvim',
+  config = function()
+    local project = require('project_nvim')
 
 project.setup({
   -- Activate Project plugin:
@@ -71,8 +68,8 @@ project.setup({
     local keymap = require('telescope.keymap')
     -- Disable the mappings:
     keymap.n { "n", "f", 'find_project_files' }
-    keymap.n { "n", "b", browse_project_files }
-    keymap.n { "n", "d", delete_project }
+    keymap.n { "n", "b", 'browse_project_files' }
+    keymap.n { "n", "d", 'delete_project' }
     keymap.n { 's', false }
     keymap.n { 'r', false }
     keymap.n { 'w', false }
@@ -96,3 +93,5 @@ telescope.load_extension('projects')
 
 -- Enable Telescope projects picker:
 -- telescope.extensions.projects.projects{}
+  end,
+}
