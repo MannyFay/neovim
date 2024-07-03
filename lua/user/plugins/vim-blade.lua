@@ -1,16 +1,14 @@
-" Add this to the Packer plugin file:
+-------------------------------------------------------------------------------
+-- vim-blade Plugin
+-- Blade syntax highligting:
 
-" -- Blade syntax highligting:
-" --[[ use({ ]]
-" --[[   'jwalton512/vim-blade', ]]
-" --[[   config = function() ]]
-" --[[     require('user.plugin_options.vim-blade') ]]
-" --[[   end, ]]
-" --[[ }) ]]
+-- https://github.com/jwalton512/vim-blade?tab=readme-ov-file
+-------------------------------------------------------------------------------
+return{
+      'jwalton512/vim-blade',
+      config = function()
 
-
-
-
+vim.cmd ([[
 " Define some single Blade directives. This variable is used for highlighting only.
 let g:blade_custom_directives = ['props', 'servers']
 
@@ -25,3 +23,7 @@ let g:blade_custom_directives_pairs = {
       \   'error': 'enderror',
       \   'finished': 'endfinished'
       \ }
+
+]])
+      end,
+}
