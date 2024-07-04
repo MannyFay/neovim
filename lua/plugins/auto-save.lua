@@ -12,7 +12,7 @@ return {
   config = function()
 	  local autosave = require("auto-save")
 
-    autosave.setup{{
+    autosave.setup({
        enabled           = true,                              -- Enable plugin.
        execution_message = {
         message = function()
@@ -20,7 +20,7 @@ return {
         end,
         dim               = 0.18,                             -- Dim the color of `message`.
         cleaning_interval = 1250,                             -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
-      }
+      },
 
       -- Function that determines whether to save the current buffer or not (true: if buffer is ok to be saved. false: if it's not ok to be saved.
       condition = function(buf)
@@ -44,7 +44,6 @@ return {
         before_saving         = nil,  -- Ran before doing the actual save.
         after_saving          = nil,  -- Ran after doing the actual save.
       },
-    },
   })
   end,
 }
